@@ -1,57 +1,86 @@
 module Main exposing (Model, Msg(..), init, main, update, view)
 
 import Browser
-import Html exposing (Html, div, h1, img, text)
-import Html.Attributes exposing (src)
+import Html
+import Html.Attributes
+import Html.Events
 
 
 
----- MODEL ----
-
-
-type alias Model =
-    {}
-
-
-init : ( Model, Cmd Msg )
-init =
-    ( {}, Cmd.none )
-
-
-
----- UPDATE ----
-
-
-type Msg
-    = NoOp
-
-
-update : Msg -> Model -> ( Model, Cmd Msg )
-update msg model =
-    ( model, Cmd.none )
-
-
-
----- VIEW ----
-
-
-view : Model -> Html Msg
-view model =
-    div []
-        [ img [ src "/logo.svg" ] []
-        , h1 [] [ text "Your Elm App is working!" ]
-        ]
-
-
-
----- PROGRAM ----
+-- MAIN
 
 
 main : Program () Model Msg
 main =
-    Browser.element
-        { view = view
-        , init = \_ -> init
+    Browser.sandbox
+        { init = init
+        , view = view
         , update = update
-        , subscriptions = always Sub.none
         }
+
+
+
+-- MODEL
+
+
+type alias Model =
+    { currentText : String }
+
+
+init : Model
+init =
+    { currentText = "" }
+
+
+
+-- UPDATE
+
+
+type Msg
+    = SetCurrentText String
+
+
+update : Msg -> Model -> Model
+update msg model =
+    case msg of
+        SetCurrentText newText ->
+            -- currently, this does nothing!
+            model
+
+
+
+-- VIEW
+
+
+view : Model -> Html.Html Msg
+view model =
+    Html.div
+        []
+        [ Html.node "link"
+            [ Html.Attributes.rel "stylesheet"
+            , Html.Attributes.href "stylesheets/main.css"
+            ]
+            []
+        , Html.nav
+            []
+            [ Html.div
+                [ Html.Attributes.class "nav-wrapper light-blue lighten-2" ]
+                [ Html.div
+                    [ Html.Attributes.class "brand-logo center" ]
+                    [ Html.text "Elmoji Translator" ]
+                ]
+            ]
+        , Html.section
+            [ Html.Attributes.class "container" ]
+            [ Html.div
+                [ Html.Attributes.class "input-field" ]
+                [ Html.input
+                    [ Html.Attributes.type_ "text"
+                    , Html.Attributes.class "center"
+                    , Html.Attributes.placeholder "Let's Translate!"
+                    , Html.Events.onInput SetCurrentText
+                    ]
+                    []
+                ]
+            ]
+        ]
