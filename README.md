@@ -19,6 +19,18 @@ nix-shell
 npm i
 ```
 
+## Formatting it
+
+If you use vim and ALE you might like to add the formatter as a fixer
+
+```
+let g:ale_fixers = {
+\ 'typescript': ['prettier'],
+\ 'elixir': ['mix_format'],
+\ 'elm': ['format'],
+\}
+```
+
 ## Running it
 
 ### With tmux
