@@ -28,7 +28,7 @@ tmux-up tmux-up.conf
 
 ### Otherwise
 
-All of the commands below (except REPL) watch the file a run again if a file changes so it is worth opening them a separate tab / window.
+All of the commands below (except REPL) watch the project's files and run again if a file changes so it is worth opening them a separate tab / window.
 
 #### Serve
 
