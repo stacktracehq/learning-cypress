@@ -1,34 +1,15 @@
-# Elm Training
-
-The purpose of this repository is to provide a starting point for running through the [Elmbridge Emoji Translator](https://elmbridge.github.io/curriculum/The%20Elm%20Architecture.html) curriculum. The tutorial uses elm reactor, but this app was created with [create-elm-app](https://github.com/halfzebra/create-elm-app) so there  _may_ be some subtle differences ¯\_(ツ)_/¯.
-
+# Cypress Training
 ## General info
 
-* [Packages](https://package.elm-lang.org/)
-* [Hoogle like search](https://klaftertief.github.io/elm-search/)
-* [Official guide](https://guide.elm-lang.org/)
-* [Elm discourse](https://discourse.elm-lang.org/)
-* [Repos](https://github.com/elm)
+* [Cypress Docs](https://docs.cypress.io/)
 
 ## Installing it
 
 ```sh
-git clone git@github.com:stacktracehq/elmbridge-emoji-translator.git
-cd elmbridge-emoji-translator
+git clone git@github.com:stacktracehq/learning-cypress.git
+cd learning-cypress
 nix-shell
 npm i
-```
-
-## Formatting it
-
-If you use vim and ALE you might like to add the formatter as a fixer
-
-```
-let g:ale_fixers = {
-\ 'typescript': ['prettier'],
-\ 'elixir': ['mix_format'],
-\ 'elm': ['format'],
-\}
 ```
 
 ## Running it
